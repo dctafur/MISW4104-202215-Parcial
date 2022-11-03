@@ -1,0 +1,62 @@
+<div class="d-flex flex-column flex-fill">
+
+  <!-- Header -->
+  <div class="position-relative" [style.padding-top]="'60px'">
+    <div class="container pe-0 border-bottom">
+
+      <!-- Image -->
+      <div class="d-flex flex-row-reverse">
+        <img src="assets/images/car-back-side.jpg" alt="Car back image" />
+      </div>
+
+      <!-- Title & Subtitle -->
+      <div class="position-absolute top-50">
+      
+        <!-- Title -->
+        <div class="d-flex align-items-center">
+          <div class="trapezoid-primary"></div>
+          <div class="d-inline-flex fs-5 fw-bold text-uppercase text-bg-primary">
+            <div class="text-truncate">Comercialización de automotores</div>
+          </div>
+          <div class="trapezoid-primary" [style.transform]="'rotate(180deg)'"></div>
+        </div>
+        
+        <!-- Subtitle -->
+        <div class="d-flex align-items-center">
+          <div class="rectangle-dark"></div>
+          <div class="d-inline-flex fs-6 fw-bold text-uppercase text-bg-dark">
+            Nuevos y usados
+          </div>
+          <div class="trapezoid-dark" [style.transform]="'rotate(180deg)'"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="container py-5">
+
+    <!-- Cars list-->
+    <table class="table table-striped">
+      <thead>
+        <tr class="table-dark">
+          <th scope="col">#</th>
+          <th scope="col">Marca</th>
+          <th scope="col">Línea</th>
+          <th scope="col">Modelo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let car of cars; trackBy: trackByFn">
+          <tr>
+            <th scope="row">{{car.id}}</th>
+            <td>{{car.marca}}</td>
+            <td>{{car.linea}}</td>
+            <td>{{car.modelo}}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+
+</div>

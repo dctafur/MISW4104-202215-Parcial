@@ -10,7 +10,7 @@ export const appRoutes: Route[] = [
     component: LayoutComponent,
     data: { layout: 'default' },
     children: [
-      
+      { path: 'home', loadChildren: () => import('./modules/cars/cars.module').then((m) => m.CarsModule) },
     ]
   },
 ];

@@ -1,11 +1,12 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'default-layout',
-  templateUrl: './default.component.html',
+  selector: 'cars',
+  templateUrl: './cars.component.html',
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DefaultLayoutComponent {
+export class CarsComponent {
   // -----------------------------------------------------------------------------------------------------
   // @ Constructor
   // -----------------------------------------------------------------------------------------------------
