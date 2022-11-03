@@ -8,3 +8,8 @@ export interface Car {
   color?: string;
   imagen?: string;
 }
+
+export interface Brand {
+  name?: string;
+  count?: number;
+}

@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnIni
 import { Subject, takeUntil } from 'rxjs';
 
 import { CarsService } from 'app/modules/cars/cars.service';
-import { Car } from 'app/modules/cars/cars.types';
+import { Brand, Car } from 'app/modules/cars/cars.types';
 
 @Component({
   selector: 'cars-list',
@@ -17,6 +17,7 @@ export class CarsListComponent implements OnInit, OnDestroy {
   // -----------------------------------------------------------------------------------------------------
   
   cars: Car[];
+  brands: Brand[] = [];
   private _unsubscribeAll: Subject<any> = new Subject<any>();
 
   // -----------------------------------------------------------------------------------------------------
@@ -39,8 +40,8 @@ export class CarsListComponent implements OnInit, OnDestroy {
     this._carsService.cars$
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((cars) => {
-        console.log(cars);
         this.cars = cars;
+        this._countCarsByBrand();
         this._changeDetectorRef.markForCheck();
       });
   }
@@ -62,5 +63,23 @@ export class CarsListComponent implements OnInit, OnDestroy {
    */
   trackByFn(index: number, item: any): any {
     return item.id || index;
+  }
+
+  // -----------------------------------------------------------------------------------------------------
+  // @ Private methods
+  // -----------------------------------------------------------------------------------------------------
+
+  /**
+   * Count cars by brand
+   */
+  private _countCarsByBrand(): void {
+    if (!this.cars || !this.cars.length) return;
+    const brands = new Set(this.cars.map((car) => car.marca));
+    for (const brand of brands) {
+      this.brands.push({ 
+        name: brand, 
+        count: this.cars.filter((car) => car.marca === brand).length,
+      });
+    }
   }
 }
