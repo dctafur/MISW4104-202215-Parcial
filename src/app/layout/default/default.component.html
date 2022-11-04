@@ -1,0 +1,24 @@
+<!-- Wrapper -->
+<div class="d-flex flex-column flex-fill w-100">
+
+  <!-- Navigation-->
+  <div class="navbar bg-white fixed-top py-0">
+    <div class="container py-2 border-bottom">
+      <a class="navbar-brand fs-4 fw-bold" [routerLink]="['home']">
+        TuSegundazo.com
+      </a>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="d-flex flex-column flex-fill">
+    <router-outlet *ngIf="true"></router-outlet>
+  </div>
+
+  <!-- Footer -->
+  <div class="container border-top">
+    <div class="text-center py-3">
+      Contact us: +57 3102105253 - info@tusegundazo.com - @tusegundazo - v1.0.0
+    </div>
+  </div>
+</div>

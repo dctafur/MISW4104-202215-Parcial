@@ -1,0 +1,17 @@
+.rectangle-dark {
+  width: 25px;
+  height: 24px;
+  background-color: var(--bs-dark);
+}
+
+.trapezoid-dark {
+  border-bottom: 24px solid var(--bs-dark);
+  border-left: 25px solid transparent;
+  height: 0;
+}
+
+.trapezoid-primary {
+  border-bottom: 30px solid var(--bs-primary);
+  border-left: 25px solid transparent;
+  height: 0;
+}
